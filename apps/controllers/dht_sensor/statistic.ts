@@ -11,8 +11,7 @@ export const findAllTemperature = async (req: any, res: Response): Promise<any> 
       where: {
         deleted: { [Op.eq]: 0 }
       },
-      attributes: ['dhtSensorTemperature', 'createdAt'],
-      order: [['id', 'desc']]
+      attributes: ['dhtSensorTemperature', 'createdAt']
     })
     const response = ResponseData.default
     response.data = result
@@ -31,8 +30,7 @@ export const findAllHumidity = async (req: any, res: Response): Promise<any> => 
       where: {
         deleted: { [Op.eq]: 0 }
       },
-      attributes: ['dhtSensorHumidity', 'createdAt'],
-      order: [['id', 'desc']]
+      attributes: ['dhtSensorHumidity', 'createdAt']
     })
     const response = ResponseData.default
     response.data = result

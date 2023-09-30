@@ -22,6 +22,12 @@ export const findAllDhtSensor = async (req: any, res: Response): Promise<any> =>
             { dhtSensorTemperature: { [Op.like]: `%${req.query.search}%` } }
           ]
         })
+        // createdAt: {
+        //   [Op.between]: [
+        //     new Date('2023-09-30T07:35:43.000Z'),
+        //     new Date('2023-09-30T07:38:20.000Z')
+        //   ]
+        // }
       },
       order: [['id', 'desc']],
       ...(req.query.pagination === 'true' && {

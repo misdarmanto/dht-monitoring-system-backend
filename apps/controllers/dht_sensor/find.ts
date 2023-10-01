@@ -39,6 +39,9 @@ export const findAllDhtSensor = async (req: any, res: Response): Promise<any> =>
             { dhtSensorTemperature: { [Op.like]: `%${req.query.search}%` } }
           ]
         }),
+        ...(Boolean(req.query.start) && {
+          createdAt: { [Op.between]: [req.query.start, req.query.end] }
+        }),
         ...(req.query.range === 'today' && {
           createdAt: { [Op.between]: [TODAY_START, TODAY_END] }
         }),
